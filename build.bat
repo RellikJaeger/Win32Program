@@ -1,7 +1,7 @@
 @echo off
 :: IMPORTANT
 set build_tool="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-set output_dir=build
+set build_dir=build\
 set source_file=main
 set default_source=false
 set param=%1
@@ -33,7 +33,6 @@ if not defined DevEnvDir (
 )
 :: END IMPORTANT
 
-set build_dir=build
 call clean.bat %build_dir%
 if not exist %build_dir% (md %build_dir%>nul)
 pushd %build_dir%
