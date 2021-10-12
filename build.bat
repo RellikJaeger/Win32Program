@@ -41,6 +41,7 @@ cl %build_flags% %source_file% %*
 if %errorlevel% neq 0 (goto Fail)
 
 :Success
+del /f /q *.obj
 pushd ..
 call run.bat %build_dir%\%output_program%
 popd
