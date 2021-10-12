@@ -2,15 +2,24 @@
 :: IMPORTANT
 set build_tool="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 set build_dir=build\
+set source_dir=src\
 set source_file=main
+set module_dir=BasicWindow\
 set default_source=false
 set param=%1
 rem call :Stringlength paramLength %param%
-set fileName=%param:~0,-4%
-set fileExt=%param:~-4%
+rem set fileName=%param:~0,-4%
+rem set fileExt=%param:~-4%
+
+for /f "delims=" %%i in ("%param%") do (
+set fileDrive=%%~di
+set filePath=%%~pi
+set fileName=%%~ni
+set fileExt=%%~xi
+)
 
 if [%param%] == [] (
-	if exist "%source_file%.cpp" (
+	if exist "%source_dir%%module_dir%%source_file%.cpp" (
 		set default_source=true
 	) else (
 		goto FileNotFoundError
@@ -49,9 +58,9 @@ echo.
 
 :: IMPORTANT
 if %default_source% == false (
-	cl %build_flags% ..\%1
+	cl %build_flags% ..\%source_dir%%1
 ) else (
-	cl %build_flags% ..\%source_file%.cpp
+	cl %build_flags% ..\%source_dir%%module_dir%%source_file%.cpp
 )
 :: END IMPORTANT
 
