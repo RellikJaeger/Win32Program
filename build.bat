@@ -21,7 +21,7 @@ if not defined DevEnvDir (
 
 set build_dir=build
 call clean.bat %build_dir%
-md %build_dir%
+if not exist %build_dir% (md %build_dir%>nul)
 pushd %build_dir%
 
 :: IMPORTANT

@@ -13,10 +13,10 @@ if [%1] equ [] (
 
 :BuildDirNotFoundError
 if /i [%0] equ ["%~dpnx0"] (
-	msg * \"build\" directory not found to clean.
+	msg * Nothing found to clean.
 ) else (
 	echo.
-	echo   "build" directory not found to clean.
+	echo   Nothing found to clean.
 )
 exit /b 1
 
