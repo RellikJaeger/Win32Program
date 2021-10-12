@@ -84,8 +84,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) { /
 				EndPaint(hwnd, &ps);
 			}
 			break;
-
-		return 0;
 	}
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam); // IMPORTANT
