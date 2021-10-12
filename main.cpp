@@ -1,4 +1,4 @@
-// Definations for compiler flags
+// Definitions for compiler flags
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
